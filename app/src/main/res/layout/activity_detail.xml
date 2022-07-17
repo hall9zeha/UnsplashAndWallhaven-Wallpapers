@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.view.DetailActivity">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:id="@+id/clLoadingDetail"
+      >
+      <ProgressBar
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/pbLoadingMain"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent"/>
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/tvLoadingMain"
+          android:text="@string/loadingText"
+          android:fontFamily="@font/lemon"
+          app:layout_constraintStart_toStartOf="@id/pbLoadingMain"
+          app:layout_constraintEnd_toEndOf="@id/pbLoadingMain"
+          app:layout_constraintTop_toBottomOf="@id/pbLoadingMain"/>
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/clPhotoView"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.github.chrisbanes.photoview.PhotoView
+            android:id="@+id/photoView"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:src="@drawable/unsplash_placeholder"
+            android:adjustViewBounds="true"
+            />
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/pbLoadingDetail"
+            android:layout_gravity="center"/>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+<com.google.android.material.button.MaterialButton
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:id="@+id/btnZoom"
+    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+    app:icon="@drawable/ic_contract"
+    app:iconGravity="textStart"
+    app:iconPadding="0dp"
+    app:iconTint="@color/color_icon_btn_zoom"
+    app:strokeWidth="0dp"
+    android:visibility="gone"
+    tools:visibility="visible"
+    android:backgroundTint="@color/color_button_zoom"
+    android:insetTop="0dp"
+    android:insetBottom="0dp"
+    android:insetRight="0dp"
+    android:insetLeft="0dp"
+    app:layout_constraintEnd_toEndOf="@id/clPhotoView"
+    app:layout_constraintTop_toTopOf="@id/clPhotoView"
+    android:layout_marginTop="@dimen/common_padding_big"
+    android:layout_marginEnd="@dimen/common_padding_default"
+    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle"/>
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/btnFavorite"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        app:icon="@drawable/ic_favorite_outline"
+        app:iconGravity="textStart"
+        app:iconPadding="0dp"
+        app:iconTint="@color/color_icon_btn_zoom"
+        app:strokeWidth="0dp"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:backgroundTint="@color/color_button_zoom"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:insetRight="0dp"
+        android:insetLeft="0dp"
+        app:layout_constraintStart_toStartOf="@id/btnZoom"
+        app:layout_constraintEnd_toEndOf="@id/btnZoom"
+        app:layout_constraintTop_toBottomOf="@id/btnZoom"
+        android:layout_marginTop="@dimen/common_padding_default"
+
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle"/>
+
+   <com.google.android.material.chip.Chip
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:id="@+id/chipFileSize"
+       android:visibility="gone"
+       tools:visibility="visible"
+       tools:text="2mb"
+       app:ensureMinTouchTargetSize="false"
+       android:backgroundTint="@color/color_button_zoom"
+       android:textColor="@color/color_icon_btn_zoom"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       android:layout_marginTop="@dimen/common_padding_big"
+       android:layout_marginStart="@dimen/common_padding_default"
+       />
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/clBottomSheet"
+        android:visibility="gone"
+        tools:visibility="visible"
+       app:layout_constraintBottom_toBottomOf="parent">
+    <include
+        layout="@layout/detail_image_bottom_layout"
+        android:id="@+id/detailLayout"
+        />
+   </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
